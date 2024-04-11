@@ -18,9 +18,7 @@ namespace FoxClicker
     public partial class MainMenu : Form
     {
         private void MainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
+        { }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, UIntPtr dwExtraInfo);
@@ -167,7 +165,7 @@ namespace FoxClicker
                 }
                 else if (radioButton4.Checked == true)
                 {
-                    if (isRec == false)
+                    if (isRec == false && playIsRec == false)
                     {
                         Class_CursorPosition.MouseHook.Start(); arrayLenghTimer = 0; IArray = 0; isRec = true; timer3.Enabled = true; labelTimeRec.Text = "0"; mm = 0; dataGridViewCursorLocation.Rows.Clear(); kolKlickov = 0; syhRec = true;
                     }
@@ -275,6 +273,7 @@ namespace FoxClicker
         Boolean restartRec = false;
         public void PlayRec()
         {
+            tableTime.Clear(); tableX.Clear(); tableY.Clear();
             labelClickRec.Text = "0";
             numberColumn = 0;
             if ( restartRec == false)
@@ -290,10 +289,10 @@ namespace FoxClicker
                     numberColumn++;
                 }
                 timer4.Start();
-                
                 restartRec = true;
             }
             arrayLengh = tableTime.Count;
+            restartRec = false;
         }
 
         //Таймер для воспроизвдения записи
@@ -317,10 +316,7 @@ namespace FoxClicker
                 timer4.Stop();
                 restartTimer4();
             }
-            else
-            {
-                mm2++;
-            }
+            else { mm2++; }
         }
 
         public void restartTimer4()

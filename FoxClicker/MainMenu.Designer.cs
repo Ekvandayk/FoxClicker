@@ -296,7 +296,7 @@ namespace FoxClicker
             this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(274, 144);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(331, 78);
+            this.groupBox2.Size = new System.Drawing.Size(331, 60);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Режим интервала";
@@ -353,9 +353,9 @@ namespace FoxClicker
             this.groupBox3.Controls.Add(this.labelCursorPosition);
             this.groupBox3.Controls.Add(this.buttonCursorPosition);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(274, 228);
+            this.groupBox3.Location = new System.Drawing.Point(274, 210);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(331, 171);
+            this.groupBox3.Size = new System.Drawing.Size(331, 172);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Режим координат";
@@ -492,9 +492,9 @@ namespace FoxClicker
             this.groupBox4.Controls.Add(this.labelTimeRec);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Enabled = false;
-            this.groupBox4.Location = new System.Drawing.Point(274, 406);
+            this.groupBox4.Location = new System.Drawing.Point(274, 388);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(331, 117);
+            this.groupBox4.Size = new System.Drawing.Size(331, 129);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Режим записи";
@@ -511,7 +511,7 @@ namespace FoxClicker
             // labelClickRec
             // 
             this.labelClickRec.AutoSize = true;
-            this.labelClickRec.Location = new System.Drawing.Point(173, 79);
+            this.labelClickRec.Location = new System.Drawing.Point(76, 78);
             this.labelClickRec.Name = "labelClickRec";
             this.labelClickRec.Size = new System.Drawing.Size(14, 16);
             this.labelClickRec.TabIndex = 5;
@@ -522,9 +522,9 @@ namespace FoxClicker
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(11, 78);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(155, 16);
+            this.label15.Size = new System.Drawing.Size(67, 16);
             this.label15.TabIndex = 4;
-            this.label15.Text = "Количество значений:";
+            this.label15.Text = "Позиция:";
             // 
             // labelTimeRec
             // 
@@ -788,7 +788,7 @@ namespace FoxClicker
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(274, 61);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(647, 385);
+            this.pictureBox1.Size = new System.Drawing.Size(647, 462);
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
             // 
@@ -804,7 +804,7 @@ namespace FoxClicker
             // pictureBox15
             // 
             this.pictureBox15.BackColor = System.Drawing.Color.White;
-            this.pictureBox15.Location = new System.Drawing.Point(934, 281);
+            this.pictureBox15.Location = new System.Drawing.Point(933, 281);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(238, 50);
             this.pictureBox15.TabIndex = 44;
@@ -839,11 +839,11 @@ namespace FoxClicker
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1180, 560);
