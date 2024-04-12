@@ -67,6 +67,8 @@ namespace FoxClicker
             this.buttonCursorPosition = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.loadButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.labelClickRec = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -97,6 +99,8 @@ namespace FoxClicker
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog_rec = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog_rec = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -194,9 +198,9 @@ namespace FoxClicker
             this.groupBox1.Controls.Add(this.textBoxSec_Timer);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxMM_Timer);
-            this.groupBox1.Location = new System.Drawing.Point(274, 61);
+            this.groupBox1.Location = new System.Drawing.Point(280, 61);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(331, 79);
+            this.groupBox1.Size = new System.Drawing.Size(325, 79);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Обычный режим";
@@ -222,7 +226,7 @@ namespace FoxClicker
             this.groupBox6.Controls.Add(this.labelKolKlikov);
             this.groupBox6.Location = new System.Drawing.Point(611, 61);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(310, 124);
+            this.groupBox6.Size = new System.Drawing.Size(305, 124);
             this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             // 
@@ -294,9 +298,9 @@ namespace FoxClicker
             this.groupBox2.Controls.Add(this.textBoxInterval_Do);
             this.groupBox2.Controls.Add(this.textBoxInterval_Ot);
             this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(274, 144);
+            this.groupBox2.Location = new System.Drawing.Point(280, 144);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(331, 60);
+            this.groupBox2.Size = new System.Drawing.Size(325, 60);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Режим интервала";
@@ -353,9 +357,9 @@ namespace FoxClicker
             this.groupBox3.Controls.Add(this.labelCursorPosition);
             this.groupBox3.Controls.Add(this.buttonCursorPosition);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(274, 210);
+            this.groupBox3.Location = new System.Drawing.Point(280, 210);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(331, 172);
+            this.groupBox3.Size = new System.Drawing.Size(406, 172);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Режим координат";
@@ -486,18 +490,46 @@ namespace FoxClicker
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.White;
+            this.groupBox4.Controls.Add(this.loadButton);
+            this.groupBox4.Controls.Add(this.saveButton);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.labelClickRec);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.labelTimeRec);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Enabled = false;
-            this.groupBox4.Location = new System.Drawing.Point(274, 388);
+            this.groupBox4.Location = new System.Drawing.Point(280, 388);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(331, 129);
+            this.groupBox4.Size = new System.Drawing.Size(406, 129);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Режим записи";
+            // 
+            // loadButton
+            // 
+            this.loadButton.BackColor = System.Drawing.Color.BlueViolet;
+            this.loadButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loadButton.ForeColor = System.Drawing.Color.White;
+            this.loadButton.Location = new System.Drawing.Point(310, 91);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(90, 32);
+            this.loadButton.TabIndex = 32;
+            this.loadButton.Text = "Загрузить";
+            this.loadButton.UseVisualStyleBackColor = false;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.BlueViolet;
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(214, 91);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(90, 32);
+            this.saveButton.TabIndex = 31;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label16
             // 
@@ -558,61 +590,64 @@ namespace FoxClicker
             // 
             this.dataGridViewCursorLocation.AllowUserToAddRows = false;
             this.dataGridViewCursorLocation.AllowUserToDeleteRows = false;
+            this.dataGridViewCursorLocation.AllowUserToResizeColumns = false;
+            this.dataGridViewCursorLocation.AllowUserToResizeRows = false;
             this.dataGridViewCursorLocation.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridViewCursorLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCursorLocation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnTime,
             this.CollumnX,
             this.CollumnY});
-            this.dataGridViewCursorLocation.Location = new System.Drawing.Point(6, 21);
+            this.dataGridViewCursorLocation.Location = new System.Drawing.Point(10, 19);
             this.dataGridViewCursorLocation.Name = "dataGridViewCursorLocation";
             this.dataGridViewCursorLocation.ReadOnly = true;
+            this.dataGridViewCursorLocation.RowHeadersVisible = false;
             this.dataGridViewCursorLocation.RowHeadersWidth = 51;
             this.dataGridViewCursorLocation.RowTemplate.Height = 24;
             this.dataGridViewCursorLocation.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridViewCursorLocation.Size = new System.Drawing.Size(297, 305);
+            this.dataGridViewCursorLocation.Size = new System.Drawing.Size(208, 299);
             this.dataGridViewCursorLocation.TabIndex = 26;
             // 
             // ColumnTime
             // 
-            this.ColumnTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ColumnTime.FillWeight = 75F;
             this.ColumnTime.HeaderText = "Тайминг";
             this.ColumnTime.MinimumWidth = 6;
             this.ColumnTime.Name = "ColumnTime";
             this.ColumnTime.ReadOnly = true;
             this.ColumnTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnTime.Width = 75;
+            this.ColumnTime.Width = 92;
             // 
             // CollumnX
             // 
-            this.CollumnX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CollumnX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.CollumnX.FillWeight = 50F;
             this.CollumnX.HeaderText = "X";
             this.CollumnX.MinimumWidth = 6;
             this.CollumnX.Name = "CollumnX";
             this.CollumnX.ReadOnly = true;
             this.CollumnX.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CollumnX.Width = 50;
+            this.CollumnX.Width = 44;
             // 
             // CollumnY
             // 
-            this.CollumnY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CollumnY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.CollumnY.FillWeight = 50F;
             this.CollumnY.HeaderText = "Y";
             this.CollumnY.MinimumWidth = 6;
             this.CollumnY.Name = "CollumnY";
             this.CollumnY.ReadOnly = true;
-            this.CollumnY.Width = 50;
+            this.CollumnY.Width = 45;
             // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.White;
             this.groupBox5.Controls.Add(this.dataGridViewCursorLocation);
             this.groupBox5.Enabled = false;
-            this.groupBox5.Location = new System.Drawing.Point(611, 191);
+            this.groupBox5.Location = new System.Drawing.Point(692, 191);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(310, 332);
+            this.groupBox5.Size = new System.Drawing.Size(224, 326);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Таблица значений записи";
@@ -810,6 +845,10 @@ namespace FoxClicker
             this.pictureBox15.TabIndex = 44;
             this.pictureBox15.TabStop = false;
             // 
+            // openFileDialog_rec
+            // 
+            this.openFileDialog_rec.FileName = "openFileDialog1";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -931,9 +970,6 @@ namespace FoxClicker
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CollumnX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CollumnY;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -953,6 +989,13 @@ namespace FoxClicker
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog_rec;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_rec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CollumnX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CollumnY;
     }
 }
 

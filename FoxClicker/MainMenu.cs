@@ -70,6 +70,9 @@ namespace FoxClicker
             // и т.п.
             gkh.KeyUp += new KeyEventHandler(gkh_KeyUp);
             Class_CursorPosition.MouseHook.MouseAction += new EventHandler(Event);
+
+            openFileDialog_rec.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            saveFileDialog_rec.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
 
         void startAutoClicker_Norm(int interval) //Запуск кликера в "Обычном режиме"
@@ -317,6 +320,84 @@ namespace FoxClicker
                 restartTimer4();
             }
             else { mm2++; }
+        }
+
+        //Сохранить текущую таблицу записи в файл
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog_rec.ShowDialog() == DialogResult.Cancel) return;
+
+            string fileName = saveFileDialog_rec.FileName;
+            FileStream fs = new FileStream(fileName, FileMode.Create);
+            StreamWriter streamWriter = new StreamWriter(fs);
+
+            try
+            {
+                for (int i = 0; i < dataGridViewCursorLocation.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridViewCursorLocation.Rows[i].Cells.Count; j++)
+                    {
+                        streamWriter.Write(dataGridViewCursorLocation.Rows[i].Cells[j].Value + " ");
+                    }
+                    streamWriter.WriteLine();
+                }
+
+                streamWriter.Close();
+                fs.Close();
+
+                MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Что-то пошло не так!", "Сохранение - ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Восстановить записи из файла
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewCursorLocation.Rows.Clear();
+            if (openFileDialog_rec.ShowDialog() == DialogResult.Cancel) return;
+
+            string fileName = openFileDialog_rec.FileName;
+
+            try
+            {
+                foreach (var line in File.ReadLines(fileName))
+                {
+                    var array = line.Split();
+                    dataGridViewCursorLocation.Rows.Add(array);
+                }
+
+                tableTime.Clear(); tableX.Clear(); tableY.Clear();
+                foreach (DataGridViewRow item in dataGridViewCursorLocation.Rows)
+                {
+                    if (item.Cells.Count >= 2 && //atleast two columns
+                        item.Cells[1].Value != null) //value is not null
+                    {
+                        tableTime.Add(item.Cells[0].Value.ToString());
+                        tableX.Add(item.Cells[1].Value.ToString());
+                        tableY.Add(item.Cells[2].Value.ToString());
+                    }
+                }
+
+                //Удаление пустых строк
+                for (int i = 0; i < dataGridViewCursorLocation.RowCount - 1; i++)
+                {
+                    if (dataGridViewCursorLocation.Rows[i].Cells[1].Value.ToString() == "")
+                    {
+                        dataGridViewCursorLocation.Rows.RemoveAt(i);
+                        i--;
+                    }
+                }
+                syhRec = true;
+                MessageBox.Show("Данные из файла успешно загружены", "Восстановление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                tableTime.Clear(); tableX.Clear(); tableY.Clear(); dataGridViewCursorLocation.Rows.Clear();
+                MessageBox.Show("Файл неподходящего типа!", "Восстановление - ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void restartTimer4()
