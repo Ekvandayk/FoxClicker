@@ -839,7 +839,7 @@
         5piEBiv/2Q==
 </value>
   </data>
-  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="closePictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEARwBHAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdCIFhZ
         WiAHzwAGAAMAAAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFE
@@ -1487,7 +1487,7 @@
      1)Обычный режим. Для его работы необходимо ввести длительность задержки. Для запуска/остановки нажать f6.
      2)Режим интервала. Он предназначен для обмана анти кликер систем. Он производит один клик в пределах интервала. ВАЖНО! Первое число должно быть меньше второго! Для запуска/остановки нажать f6.
      3)Режим координат. При нажатии на кнопку f7 автокликер запоминает текущие координаты курсора. При перемещении курсора данные автоматически обновляются. Чтобы остановить отслеживание курсора, необходимо снова нажать f7. При запуске (f6), автокликер автоматически переносит курсор на записанные координаты и кликает в том месте. 
-     4)Режим записи. При нажатии на кнопку f7 автокликер начинает записывать все клики в таблицу "Таблица значений записи". Для остановки записи необходимо снова нажать f7. Далее при запуске (f6) автокликер читает таблицу и производит абсолютно идентичные ранее записанные клики.</value>
+     4)Режим записи. При нажатии на кнопку f7 автокликер начинает записывать все клики в таблицу "Таблица значений записи". Для остановки записи необходимо снова нажать f7. Далее при запуске (f6) автокликер читает таблицу и производит абсолютно идентичные ранее записанные клики. Таблицу можно сохранять. Так же возможно задавать количество повторов (0 - бесконечно).</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3850,7 +3850,7 @@
         e4NwcX//AAL/AP/Z
 </value>
   </data>
-  <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="hidePictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEARwBHAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdCIFhZ
         WiAHzwAGAAMAAAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFE

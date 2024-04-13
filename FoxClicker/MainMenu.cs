@@ -71,6 +71,9 @@ namespace FoxClicker
             gkh.KeyUp += new KeyEventHandler(gkh_KeyUp);
             Class_CursorPosition.MouseHook.MouseAction += new EventHandler(Event);
 
+            ToolTip clioseToolTip = new ToolTip(); clioseToolTip.SetToolTip(closePictureBox, "Закрыть программу");
+            ToolTip hideToolTip = new ToolTip(); clioseToolTip.SetToolTip(hidePictureBox, "Свернуть программу");
+
             openFileDialog_rec.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             saveFileDialog_rec.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
@@ -154,7 +157,7 @@ namespace FoxClicker
                     if (syhRec == true)
                     {
                         if (playIsRec == false && isRec == false) { playIsRec = true; PlayRec(); timer4.Start(); }
-                        else { playIsRec = false; timer4.Stop(); mm2 = 0; IArray = 0; arrayLenghTimer = 0; arrayLengh = 0; }
+                        else { playIsRec = false; timer4.Stop(); mm2 = 0; IArray = 0; arrayLenghTimer = 0; arrayLengh = 0; repedRec = 0; }
                     }
                     else { MessageBox.Show("Вначале задайте координаты (F7)!", "!ВНИМАНИЕ!", MessageBoxButtons.OK, MessageBoxIcon.Information); }
                 }
@@ -272,6 +275,7 @@ namespace FoxClicker
         List<string> tableX = new List<string>();
         List<string> tableY = new List<string>();
         int numberColumn = 0;
+        int repedRec = 0;
         Int32 arrayLengh;
         Boolean restartRec = false;
         public void PlayRec()
@@ -304,6 +308,7 @@ namespace FoxClicker
         private void timer4_Tick(object sender, EventArgs e)
         {
             labelTimeRec.Text = mm2.ToString();
+            repedRecLabel.Text = repedRec.ToString();
             if (arrayLenghTimer < arrayLengh && mm2 == Convert.ToInt32(tableTime[IArray]))
             {
                 Cursor.Position = new Point(Convert.ToInt32(tableX[IArray]), Convert.ToInt32(tableY[IArray]));
@@ -313,9 +318,16 @@ namespace FoxClicker
                 labelClickRec.Text = $"{IArray.ToString()}";
                 labelKolKlikov.Text = $"{klick++}";
             }
+            else if (repedRec.ToString() == repetTextBox.Text && repetTextBox.Text != "0")
+            {
+                mm2 = 0; arrayLenghTimer = 0; repedRec = 0;
+                playIsRec = false;
+                timer4.Stop();
+            }
             else if (arrayLenghTimer >= arrayLengh)
             {
                 mm2 = 0; arrayLenghTimer = 0;
+                repedRec++; repedRecLabel.Text = repedRec.ToString();
                 timer4.Stop();
                 restartTimer4();
             }

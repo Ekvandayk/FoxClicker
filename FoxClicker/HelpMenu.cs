@@ -16,6 +16,9 @@ namespace FoxClicker
         public HelpMenu()
         {
             InitializeComponent();
+
+            ToolTip clioseToolTip = new ToolTip(); clioseToolTip.SetToolTip(closePictureBox, "Закрыть программу");
+            ToolTip hideToolTip = new ToolTip(); clioseToolTip.SetToolTip(hidePictureBox, "Свернуть программу");
         }
 
         private void pictureBox8_Click(object sender, EventArgs e) //Кнопка закрытия приложения
@@ -41,6 +44,17 @@ namespace FoxClicker
         private void pictureBox9_Click(object sender, EventArgs e) //Свернуть окно
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void HelpMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.SelectionLength = 0;
+            textBox1.Focus();
         }
     }
 }

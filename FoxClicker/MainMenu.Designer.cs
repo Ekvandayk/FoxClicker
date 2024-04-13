@@ -67,6 +67,11 @@ namespace FoxClicker
             this.buttonCursorPosition = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.repetTextBox = new System.Windows.Forms.TextBox();
+            this.repedRecLabel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.loadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -88,19 +93,19 @@ namespace FoxClicker
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
+            this.hidePictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titlePicture = new System.Windows.Forms.PictureBox();
             this.helpLabel = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.saveFileDialog_rec = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_rec = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -115,15 +120,15 @@ namespace FoxClicker
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hidePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titlePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxMin_Timer
@@ -490,6 +495,11 @@ namespace FoxClicker
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.White;
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.repetTextBox);
+            this.groupBox4.Controls.Add(this.repedRecLabel);
+            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.loadButton);
             this.groupBox4.Controls.Add(this.saveButton);
             this.groupBox4.Controls.Add(this.label16);
@@ -504,6 +514,52 @@ namespace FoxClicker
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Режим записи";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(256, 67);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(112, 16);
+            this.label18.TabIndex = 36;
+            this.label18.Text = "\"0\" - бесконечно";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(195, 23);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(151, 16);
+            this.label17.TabIndex = 35;
+            this.label17.Text = "Количество повторов";
+            // 
+            // repetTextBox
+            // 
+            this.repetTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.repetTextBox.Location = new System.Drawing.Point(218, 42);
+            this.repetTextBox.Name = "repetTextBox";
+            this.repetTextBox.Size = new System.Drawing.Size(100, 22);
+            this.repetTextBox.TabIndex = 22;
+            this.repetTextBox.Text = "0";
+            // 
+            // repedRecLabel
+            // 
+            this.repedRecLabel.AutoSize = true;
+            this.repedRecLabel.Location = new System.Drawing.Point(69, 99);
+            this.repedRecLabel.Name = "repedRecLabel";
+            this.repedRecLabel.Size = new System.Drawing.Size(14, 16);
+            this.repedRecLabel.TabIndex = 34;
+            this.repedRecLabel.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(11, 99);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 16);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Повтор:";
             // 
             // loadButton
             // 
@@ -719,31 +775,31 @@ namespace FoxClicker
             this.pictureBox7.TabIndex = 33;
             this.pictureBox7.TabStop = false;
             // 
-            // pictureBox8
+            // closePictureBox
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(1137, -5);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(44, 41);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 34;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.closePictureBox.BackColor = System.Drawing.Color.White;
+            this.closePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
+            this.closePictureBox.Location = new System.Drawing.Point(1137, -5);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(44, 41);
+            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closePictureBox.TabIndex = 34;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
-            // pictureBox9
+            // hidePictureBox
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.White;
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(1087, -5);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(44, 41);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 35;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            this.hidePictureBox.BackColor = System.Drawing.Color.White;
+            this.hidePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hidePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("hidePictureBox.Image")));
+            this.hidePictureBox.Location = new System.Drawing.Point(1087, -5);
+            this.hidePictureBox.Name = "hidePictureBox";
+            this.hidePictureBox.Size = new System.Drawing.Size(44, 41);
+            this.hidePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.hidePictureBox.TabIndex = 35;
+            this.hidePictureBox.TabStop = false;
+            this.hidePictureBox.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // pictureBox10
             // 
@@ -763,9 +819,9 @@ namespace FoxClicker
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.titleLabel.Location = new System.Drawing.Point(39, 5);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(165, 25);
+            this.titleLabel.Size = new System.Drawing.Size(115, 25);
             this.titleLabel.TabIndex = 37;
-            this.titleLabel.Text = "FoxClicker [1.0]";
+            this.titleLabel.Text = "FoxClicker";
             this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label13_MouseDown);
             // 
             // titlePicture
@@ -806,18 +862,6 @@ namespace FoxClicker
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(427, 0);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(313, 36);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 41;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox10_MouseDown);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
@@ -849,6 +893,18 @@ namespace FoxClicker
             // 
             this.openFileDialog_rec.FileName = "openFileDialog1";
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(427, 0);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(313, 36);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 41;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox10_MouseDown);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -862,8 +918,8 @@ namespace FoxClicker
             this.Controls.Add(this.titlePicture);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.hidePictureBox);
+            this.Controls.Add(this.closePictureBox);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox2);
@@ -911,15 +967,15 @@ namespace FoxClicker
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hidePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titlePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -977,14 +1033,13 @@ namespace FoxClicker
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox closePictureBox;
+        private System.Windows.Forms.PictureBox hidePictureBox;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox titlePicture;
         private System.Windows.Forms.Label helpLabel;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox14;
@@ -996,6 +1051,12 @@ namespace FoxClicker
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn CollumnX;
         private System.Windows.Forms.DataGridViewTextBoxColumn CollumnY;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox repetTextBox;
+        private System.Windows.Forms.Label repedRecLabel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label label18;
     }
 }
 
