@@ -107,10 +107,12 @@ namespace FoxClicker
             {
                 stopAutoClicker();
                 isStarted = false;
+                statusStop();
             }
             else if (e.KeyCode == Keys.F6 && isStarted == false && winOpen == false)
             {
                 int timerMM = 0, timerSec = 0, timerMin = 0, timerSum = 0;
+                statusStart();
 
                 //Проверка на пустоту
                 if (radioButton1.Checked == true)
@@ -156,26 +158,26 @@ namespace FoxClicker
                 {
                     if (syhRec == true)
                     {
-                        if (playIsRec == false && isRec == false) { playIsRec = true; PlayRec(); timer4.Start(); }
-                        else { playIsRec = false; timer4.Stop(); mm2 = 0; IArray = 0; arrayLenghTimer = 0; arrayLengh = 0; repedRec = 0; }
+                        if (playIsRec == false && isRec == false) { playIsRec = true; PlayRec(); timerPlayRec.Start(); }
+                        else { playIsRec = false; timerPlayRec.Stop(); mm2 = 0; IArray = 0; arrayLenghTimer = 0; arrayLengh = 0; repedRec = 0; statusStop(); }
                     }
-                    else { MessageBox.Show("Вначале задайте координаты (F7)!", "!ВНИМАНИЕ!", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                    else { MessageBox.Show("Вначале задайте координаты (F7)!", "!ВНИМАНИЕ!", MessageBoxButtons.OK, MessageBoxIcon.Information); statusStop(); }
                 }
             }
             if (e.KeyCode == Keys.F7)
             {
                 if (radioButton3.Checked == true)
                 {
-                    if (isCursorPosition == false && radioButton3.Checked == true) { timer2.Start(); isCursorPosition = true; buttonCursorPosition.Text = "Скрыть координаты (F7)"; }
-                    else if (isCursorPosition == true) { timer2.Stop(); isCursorPosition = false; buttonCursorPosition.Text = "Показать координаты (F7)"; }
+                    if (isCursorPosition == false && radioButton3.Checked == true) { timerInterval.Start(); isCursorPosition = true; buttonCursorPosition.Text = "Скрыть координаты (F7)"; statusRec(); }
+                    else if (isCursorPosition == true) { timerInterval.Stop(); isCursorPosition = false; buttonCursorPosition.Text = "Показать координаты (F7)"; statusStop(); }
                 }
                 else if (radioButton4.Checked == true)
                 {
                     if (isRec == false && playIsRec == false)
                     {
-                        Class_CursorPosition.MouseHook.Start(); arrayLenghTimer = 0; IArray = 0; isRec = true; timer3.Enabled = true; labelTimeRec.Text = "0"; mm = 0; dataGridViewCursorLocation.Rows.Clear(); kolKlickov = 0; syhRec = true;
+                        Class_CursorPosition.MouseHook.Start(); arrayLenghTimer = 0; IArray = 0; isRec = true; timerRec.Enabled = true; labelTimeRec.Text = "0"; mm = 0; dataGridViewCursorLocation.Rows.Clear(); kolKlickov = 0; syhRec = true; statusRec();
                     }
-                    else { Class_CursorPosition.MouseHook.stop(); isRec = false; timer3.Enabled = false; }
+                    else { Class_CursorPosition.MouseHook.stop(); isRec = false; timerRec.Enabled = false; statusStop(); }
                 }
             }
         }
@@ -218,7 +220,7 @@ namespace FoxClicker
 
         //Проверка активного окна
         bool winOpen = true;
-        private void Form1_Activated(object sender, EventArgs e) { winOpen = true; }
+        private void Form1_Activated(object sender, EventArgs e) { winOpen = true; statusStop(); }
         private void Form1_Deactivate(object sender, EventArgs e) { winOpen = false; }
 
         //Переключение режимов
@@ -244,8 +246,8 @@ namespace FoxClicker
         Boolean isCursorPosition = false;
         private void button2_Click(object sender, EventArgs e)
         {
-            if (isCursorPosition == false) { timer2.Start(); isCursorPosition = true; buttonCursorPosition.Text = "Скрыть координаты (F7)"; }
-            else if (isCursorPosition == true) { timer2.Stop(); isCursorPosition = false; buttonCursorPosition.Text = "Показать координаты (F7)"; }
+            if (isCursorPosition == false) { timerInterval.Start(); isCursorPosition = true; buttonCursorPosition.Text = "Скрыть координаты (F7)"; }
+            else if (isCursorPosition == true) { timerInterval.Stop(); isCursorPosition = false; buttonCursorPosition.Text = "Показать координаты (F7)"; }
         }
 
         //События нажатия кнопки мыши для REC
@@ -295,7 +297,7 @@ namespace FoxClicker
                     }
                     numberColumn++;
                 }
-                timer4.Start();
+                timerPlayRec.Start();
                 restartRec = true;
             }
             arrayLengh = tableTime.Count;
@@ -322,13 +324,14 @@ namespace FoxClicker
             {
                 mm2 = 0; arrayLenghTimer = 0; repedRec = 0;
                 playIsRec = false;
-                timer4.Stop();
+                statusStop();
+                timerPlayRec.Stop();
             }
             else if (arrayLenghTimer >= arrayLengh)
             {
                 mm2 = 0; arrayLenghTimer = 0;
                 repedRec++; repedRecLabel.Text = repedRec.ToString();
-                timer4.Stop();
+                timerPlayRec.Stop();
                 restartTimer4();
             }
             else { mm2++; }
@@ -415,7 +418,7 @@ namespace FoxClicker
         public void restartTimer4()
         {
             mm2 = 0; IArray = 0; arrayLenghTimer = 0;
-            timer4.Start(); 
+            timerPlayRec.Start(); 
         }
 
         //Кастомные кнопки закрыть, свернуть, переместить
@@ -470,5 +473,10 @@ namespace FoxClicker
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
+
+        //Изменение статуса работы
+        private void statusStart() { statusPanel.BackColor = Color.Lime; }
+        private void statusStop() { statusPanel.BackColor = Color.Red; }
+        private void statusRec() { statusPanel.BackColor = Color.Blue; }
     }
 }

@@ -44,7 +44,7 @@ namespace FoxClicker
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timerInterval = new System.Windows.Forms.Timer(this.components);
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -85,8 +85,8 @@ namespace FoxClicker
             this.CollumnX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CollumnY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timerRec = new System.Windows.Forms.Timer(this.components);
+            this.timerPlayRec = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -106,6 +106,10 @@ namespace FoxClicker
             this.saveFileDialog_rec = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_rec = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.statusPanel = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -129,6 +133,8 @@ namespace FoxClicker
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxMin_Timer
@@ -187,7 +193,7 @@ namespace FoxClicker
             // 
             // labelKolKlikov
             // 
-            this.labelKolKlikov.Location = new System.Drawing.Point(78, 52);
+            this.labelKolKlikov.Location = new System.Drawing.Point(9, 55);
             this.labelKolKlikov.Name = "labelKolKlikov";
             this.labelKolKlikov.Size = new System.Drawing.Size(150, 17);
             this.labelKolKlikov.TabIndex = 11;
@@ -231,7 +237,7 @@ namespace FoxClicker
             this.groupBox6.Controls.Add(this.labelKolKlikov);
             this.groupBox6.Location = new System.Drawing.Point(611, 61);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(305, 124);
+            this.groupBox6.Size = new System.Drawing.Size(170, 143);
             this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             // 
@@ -239,7 +245,7 @@ namespace FoxClicker
             // 
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(96, 80);
+            this.pictureBox13.Location = new System.Drawing.Point(23, 83);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(32, 32);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -252,7 +258,7 @@ namespace FoxClicker
             this.button1.BackColor = System.Drawing.Color.BlueViolet;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(129, 80);
+            this.button1.Location = new System.Drawing.Point(56, 83);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 32);
             this.button1.TabIndex = 30;
@@ -264,16 +270,16 @@ namespace FoxClicker
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(88, 0);
+            this.label4.Location = new System.Drawing.Point(18, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 50);
             this.label4.TabIndex = 12;
             this.label4.Text = "Количество\r\nкликов";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer2
+            // timerInterval
             // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.timerInterval.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // radioButton3
             // 
@@ -661,7 +667,7 @@ namespace FoxClicker
             this.dataGridViewCursorLocation.RowHeadersWidth = 51;
             this.dataGridViewCursorLocation.RowTemplate.Height = 24;
             this.dataGridViewCursorLocation.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridViewCursorLocation.Size = new System.Drawing.Size(208, 299);
+            this.dataGridViewCursorLocation.Size = new System.Drawing.Size(208, 282);
             this.dataGridViewCursorLocation.TabIndex = 26;
             // 
             // ColumnTime
@@ -701,20 +707,20 @@ namespace FoxClicker
             this.groupBox5.BackColor = System.Drawing.Color.White;
             this.groupBox5.Controls.Add(this.dataGridViewCursorLocation);
             this.groupBox5.Enabled = false;
-            this.groupBox5.Location = new System.Drawing.Point(692, 191);
+            this.groupBox5.Location = new System.Drawing.Point(692, 210);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(224, 326);
+            this.groupBox5.Size = new System.Drawing.Size(224, 307);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Таблица значений записи";
             // 
-            // timer3
+            // timerRec
             // 
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            this.timerRec.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // timer4
+            // timerPlayRec
             // 
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            this.timerPlayRec.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // pictureBox2
             // 
@@ -905,12 +911,52 @@ namespace FoxClicker
             this.pictureBox12.TabStop = false;
             this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox10_MouseDown);
             // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox7.Controls.Add(this.panel1);
+            this.groupBox7.Controls.Add(this.label19);
+            this.groupBox7.Location = new System.Drawing.Point(787, 61);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(129, 143);
+            this.groupBox7.TabIndex = 32;
+            this.groupBox7.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.statusPanel);
+            this.panel1.Location = new System.Drawing.Point(26, 44);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(79, 69);
+            this.panel1.TabIndex = 13;
+            // 
+            // statusPanel
+            // 
+            this.statusPanel.BackColor = System.Drawing.Color.Red;
+            this.statusPanel.Location = new System.Drawing.Point(11, 10);
+            this.statusPanel.Name = "statusPanel";
+            this.statusPanel.Size = new System.Drawing.Size(59, 48);
+            this.statusPanel.TabIndex = 14;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(18, 3);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(84, 25);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Статус";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(1180, 560);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox11);
@@ -976,6 +1022,9 @@ namespace FoxClicker
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,7 +1043,7 @@ namespace FoxClicker
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timerInterval;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1025,8 +1074,8 @@ namespace FoxClicker
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Timer timerRec;
+        private System.Windows.Forms.Timer timerPlayRec;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -1057,6 +1106,10 @@ namespace FoxClicker
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel statusPanel;
     }
 }
 
